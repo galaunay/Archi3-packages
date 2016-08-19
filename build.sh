@@ -12,6 +12,10 @@ cd vibrancy-colors
 makepkg -f -s -c
 cd ..
 
+cd libgee06
+makepkg -f -s -c
+cd ..
+
 cd xfce4-pulseaudio-plugin
 makepkg -f -s -c
 cd ..
