@@ -15,19 +15,19 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-function cleanup() {
-    rm -Rrf -- */
+function make_pkg() {
+    makepkg -f -s -c --sign
+    gpg-connect-agent /bye
+    killall gpg-agent
 }
 
-function cloneall() {
-    git clone https://aur.archlinux.org/gnome-encfs-manager.git
-    git clone https://aur.archlinux.org/gtk-theme-arc-git.git
-    git clone https://aur.archlinux.org/libgee06.git
-    git clone https://aur.archlinux.org/vibrancy-colors.git
-    git clone https://aur.archlinux.org/xfce4-pulseaudio-plugin.git
+function copyto_upload_dir(){
+    mv *.pkg.tar.xz ../upload
+    mv *.pkg.tar.xz.sig ../upload
 }
 
-function delete_dotgit_dirs() {
+function make_loop() {
+    mkdir upload
     for dir in */ ;
     do
         dir=${dir%*/}
@@ -35,12 +35,11 @@ function delete_dotgit_dirs() {
             continue;
         fi
 	    cd $dir
-	    rm -rf .git
-        echo "delete .git from folder "$dir
+	    make_pkg
+        copyto_upload_dir
+        echo "makepkg from "$dir" finished"
         cd ..
     done
 }
 
-cleanup
-cloneall
-delete_dotgit_dirs
+make_loop
