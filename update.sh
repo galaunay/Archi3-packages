@@ -28,6 +28,7 @@ function cloneall() {
     git clone https://aur.archlinux.org/package-query.git
     git clone https://aur.archlinux.org/yaourt.git
     git clone https://aur.archlinux.org/pamac-aur.git
+    git clone https://aur.archlinux.org/mac-os-lion-cursors.git 
 }
 
 function delete_dotgit_dirs() {
