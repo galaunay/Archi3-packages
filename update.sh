@@ -20,6 +20,7 @@ function cleanup() {
 }
 
 function cloneall() {
+    git clone https://github.com/SwagArch/swagarch-keyring.git
     git clone https://aur.archlinux.org/gnome-encfs-manager.git
     git clone https://aur.archlinux.org/gtk-theme-arc-git.git
     git clone https://aur.archlinux.org/libgee06.git
