@@ -25,6 +25,9 @@ function cloneall() {
     git clone https://aur.archlinux.org/libgee06.git
     git clone https://aur.archlinux.org/vibrancy-colors.git
     git clone https://aur.archlinux.org/xfce4-pulseaudio-plugin.git
+    git clone https://aur.archlinux.org/package-query.git
+    git clone https://aur.archlinux.org/yaourt.git
+    git clone https://aur.archlinux.org/pamac-aur.git
 }
 
 function delete_dotgit_dirs() {
