@@ -1,0 +1,28 @@
+# Based on the file created for Arch Linux by:
+# Pierre Schmitz <pierre@archlinux.de>
+
+# Maintainer: Mike Krüger <mikekrueger81@gmail.com>
+
+pkgname=swagarch-keyring
+pkgver=20160820
+pkgrel=1
+pkgdesc='SwagArch PGP keyring'
+arch=('any')
+url='https://github.com/SwagArch/swagarch-keyring'
+license=('GPL')
+install="${pkgname}.install"
+source=('Makefile'
+        'swagarch.gpg'
+        'swagarch-revoked'
+        'swagarch-trusted')
+
+sha256sums=('f743cb45874b0fa071171e1308549a110637213a58baa71855e6f330759faf38'
+            'efb404c1b4965802045c82798968667c0f390d949b6031d4949d6bb7d8d70994'
+            'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+            '3e0379c77ece9c899b761596ec336ac0e408e602f160da2dbafdfa15cc5c90ec')
+
+package() {
+	cd "${srcdir}"
+	make PREFIX=/usr DESTDIR=${pkgdir} install
+}
+# -*- mode: bash;-*-
