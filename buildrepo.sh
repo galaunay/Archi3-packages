@@ -15,4 +15,4 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-repo-add --verify --sign upload/swagarchrepo.db.tar.gz upload/*.pkg.tar.xz
+repo-add --sign upload/swagarchrepo.db.tar.gz upload/*.pkg.tar.xz
