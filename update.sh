@@ -32,6 +32,13 @@ function cloneall() {
     git clone https://aur.archlinux.org/mac-os-lion-cursors.git 
     git clone https://aur.archlinux.org/plank-theme-arc.git
     git clone https://aur.archlinux.org/arc-firefox-theme-git.git
+
+    #Get calamares package
+    mkdir calamares
+    cd calamares
+    wget https://raw.githubusercontent.com/SwagArch/calamares/master/pkg/PKGBUILD
+    cd ..
+	
 }
 
 function delete_dotgit_dirs() {
