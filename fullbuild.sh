@@ -21,7 +21,7 @@ function make_pkg() {
     killall gpg-agent
 }
 
-function copyto_upload_dir(){
+function copyto_upload_dir() {
     mv *.pkg.tar.xz ../upload
     mv *.pkg.tar.xz.sig ../upload
 }
@@ -42,4 +42,10 @@ function make_loop() {
     done
 }
 
+function create_repo() {
+    repo-add upload/swagarchrepo.db.tar.gz upload/*.pkg.tar.xz
+}
+
+
 make_loop
+create_repo
