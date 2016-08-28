@@ -43,7 +43,7 @@ function make_loop() {
 }
 
 function create_repo() {
-    repo-add upload/swagarchrepo.db.tar.gz upload/*.pkg.tar.xz
+    repo-add --sign upload/swagarchrepo.db.tar.gz upload/*.pkg.tar.xz
 }
 
 
