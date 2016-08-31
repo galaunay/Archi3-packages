@@ -39,7 +39,13 @@ function cloneall() {
     cd calamares
     wget https://raw.githubusercontent.com/SwagArch/calamares/master/pkg/PKGBUILD
     cd ..
-	
+
+    #Get swagarch-wallpapers package
+    mkdir swagarch-wallpapers
+    cd swagarch-wallpapers
+    wget https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/PKGBUILD
+    cd ..
+    
 }
 
 function delete_dotgit_dirs() {
