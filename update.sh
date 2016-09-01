@@ -44,6 +44,7 @@ function cloneall() {
     mkdir swagarch-wallpapers
     cd swagarch-wallpapers
     wget https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/PKGBUILD
+    wget https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/swagarch-wallpapers.install
     cd ..
     
 }
