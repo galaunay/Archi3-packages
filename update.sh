@@ -49,6 +49,7 @@ function cloneall() {
 
     #Get swagarch-base-skel package
     mkdir swagarch-base-skel
+    cd swagarch-base-skel
     wget https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/PKGBUILD
     wget https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/swagarch-base-skel.install
     cd ..
