@@ -46,6 +46,12 @@ function cloneall() {
     wget https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/PKGBUILD
     wget https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/swagarch-wallpapers.install
     cd ..
+
+    #Get swagarch-base-skel package
+    mkdir swagarch-base-skel
+    wget https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/PKGBUILD
+    wget https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/swagarch-base-skel.install
+    cd ..
     
 }
 
