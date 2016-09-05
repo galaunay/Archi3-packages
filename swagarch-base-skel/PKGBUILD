@@ -1,7 +1,7 @@
 # Maintainer: Mike Krüger <mikekrueger81@gmail.com>
 
 pkgname=swagarch-base-skel
-pkgver=20160904
+pkgver=20160905
 pkgrel=1
 pkgdesc='SwagArch base skeleton files'
 arch=('any')
@@ -18,6 +18,6 @@ pkgver() {
 
 package() {
 	install -d $pkgdir/etc
-	mkdir $pkgdir/etc/skel
 	cp -r $srcdir/desktop-settings/shared/skel $pkgdir/etc
+	cp -r $srcdir/desktop-settings/shared/bash $pkgdir/etc
 }
