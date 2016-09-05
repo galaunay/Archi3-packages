@@ -18,6 +18,5 @@ pkgver() {
 
 package() {
 	install -d $pkgdir/etc
-	cp -r $srcdir/desktop-settings/shared/skel $pkgdir/etc
-	cp -r $srcdir/desktop-settings/shared/bash $pkgdir/etc
+	cp -r $srcdir/desktop-settings/shared/skel_new $pkgdir/etc
 }
