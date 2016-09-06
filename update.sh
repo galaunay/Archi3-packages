@@ -28,7 +28,7 @@ function cloneall() {
     git clone https://aur.archlinux.org/xfce4-pulseaudio-plugin.git
     git clone https://aur.archlinux.org/package-query.git
     git clone https://aur.archlinux.org/yaourt.git
-    git clone https://aur.archlinux.org/pamac-pacaur.git
+    git clone https://aur.archlinux.org/pamac-aur.git
     git clone https://aur.archlinux.org/mac-os-lion-cursors.git 
     git clone https://aur.archlinux.org/plank-theme-arc.git
     git clone https://aur.archlinux.org/arc-firefox-theme-git.git
