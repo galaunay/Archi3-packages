@@ -1,5 +1,5 @@
 pkgname=calamares
-pkgver=2.3_git
+pkgver=2.4.1
 pkgrel=1
 pkgdesc='Distribution-independent installer framework'
 arch=('x86_64')
@@ -41,9 +41,6 @@ package() {
 	mkdir -p /usr/share/icons/
 	install -Dm644 "../calamares.png" "$pkgdir/usr/share/icons/calamares.png"
 	install -Dm644 "../calamares.desktop" "$pkgdir/usr/share/applications/calamares.desktop"
-	rm -r "$pkgdir/usr/lib/calamares/modules/dummyprocess/"
-	rm -r "$pkgdir/usr/lib/calamares/modules/dummypython/"
-	rm "$pkgdir/usr/share/calamares/modules/dummypython.conf"
 	cd "$srcdir/$pkgname"
 	rm -r build
 }
