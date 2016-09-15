@@ -54,6 +54,12 @@ function cloneall() {
     wget https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/PKGBUILD
     wget https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/swagarch-base-skel.install
     cd ..
+
+    #Get light-locker-settings
+    mkdir light-locker-settings
+    cd light-locker-settings
+    wget https://raw.githubusercontent.com/Antergos/antergos-packages/master/light-locker-settings/PKGBUILD
+    cd ..
     
 }
 
