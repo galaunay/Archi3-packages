@@ -38,7 +38,7 @@ function cloneall() {
     #Get calamares package
     mkdir calamares
     cd calamares
-    wget https://raw.githubusercontent.com/SwagArch/calamares/master/pkg/PKGBUILD
+    wget https://raw.githubusercontent.com/SwagArch/calamares-configs/master/pkg/PKGBUILD
     cd ..
 
     #Get swagarch-wallpapers package
