@@ -33,7 +33,8 @@ function cloneall() {
     git clone https://aur.archlinux.org/plank-theme-arc.git
     git clone https://aur.archlinux.org/arc-firefox-theme-git.git
     git clone https://aur.archlinux.org/mkinitcpio-openswap.git
-    git clone https://aur.archlinux.org/ckbcomp.git 
+    git clone https://aur.archlinux.org/ckbcomp.git
+    git clone https://aur.archlinux.org/qt5-styleplugins.git
 
     #Get calamares package
     mkdir calamares
