@@ -11,7 +11,7 @@ pre_upgrade() {
 post_install() {
 	if [ -d /etc/skel_new ]; then
          rm -rf /etc/skel/
-         mv /etc/skel_new /etc/skel
+         \cp -r /etc/skel_new/. /etc/skel
 	fi
 }
 

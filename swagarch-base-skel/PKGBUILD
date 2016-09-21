@@ -1,7 +1,7 @@
 # Maintainer: Mike Krüger <mikekrueger81@gmail.com>
 
 pkgname=swagarch-base-skel
-pkgver=20160917
+pkgver=20160921
 pkgrel=1
 pkgdesc='SwagArch base skeleton files'
 arch=('any')
