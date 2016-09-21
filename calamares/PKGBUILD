@@ -10,7 +10,7 @@ license=(GPL)
 url="https://github.com/calamares"
 license=('LGPL')
 depends=('kconfig' 'kcoreaddons' 'ki18n' 'solid' 'yaml-cpp' 'kpmcore>=2.2.0' 'mkinitcpio-openswap'
-         'boost-libs' 'hwinfo' 'qt5-svg' 'polkit-qt5' 'gptfdisk' 'gtk-update-icon-cache')
+         'boost-libs' 'hwinfo' 'qt5-svg' 'polkit-qt5' 'gptfdisk' 'gtk-update-icon-cache' 'rsync' 'squashfs-tools')
 makedepends=('extra-cmake-modules' 'qt5-tools' 'git' 'boost')
 backup=('usr/share/calamares/modules/bootloader.conf'
         'usr/share/calamares/modules/displaymanager.conf'
@@ -38,20 +38,14 @@ build() {
         cmake .. \
               -DCMAKE_BUILD_TYPE=Release \
               -DCMAKE_INSTALL_PREFIX=/usr \
-              -DWITH_PARTITIONMANAGER=1 \
               -DCMAKE_INSTALL_LIBDIR=lib \
-              -DSKIP_MODULES="webview interactiveterminal"
+              -DSKIP_MODULES="webview interactiveterminal initramfs dracut packages netinstall license"
         make
 }
 
 package() {
     cd ${srcdir}/calamares-${_pkgver}/build
     make DESTDIR="$pkgdir" install
-    install -Dm644 "../src/modules/users/users.conf" "$pkgdir/usr/share/calamares/modules/users.conf"
-    install -Dm644 "../src/modules/mrpacman/mrpacman.conf" "$pkgdir/usr/share/calamares/modules/mrpacman.conf"
-    install -Dm644 "../src/modules/removeuser/removeuser.conf" "$pkgdir/usr/share/calamares/modules/removeuser.conf"
-    install -Dm644 "../src/modules/unpackfs/unpackfs.conf" "$pkgdir/usr/share/calamares/modules/unpackfs.conf"
-    install -Dm644 "../settings.conf" "$pkgdir/usr/share/calamares/settings.conf"
     install -Dm644 "../calamares.desktop" "$pkgdir/usr/share/applications/calamares.desktop"
     install -Dm644 "../calamares.png" "$pkgdir/usr/share/icons/calamares.png"
     rm -r "$pkgdir/usr/lib/calamares/modules/dummyprocess/"
