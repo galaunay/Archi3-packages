@@ -60,7 +60,7 @@ function cloneall() {
     #Get light-locker-settings
     mkdir light-locker-settings
     cd light-locker-settings
-    wget https://raw.githubusercontent.com/Antergos/antergos-packages/master/light-locker-settings/PKGBUILD
+    wget https://raw.githubusercontent.com/Antergos/antergos-packages/master/antergos/light-locker-settings/PKGBUILD
     cd ..
     
 }
