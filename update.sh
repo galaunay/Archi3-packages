@@ -35,34 +35,48 @@ function cloneall() {
     git clone https://aur.archlinux.org/mkinitcpio-openswap.git
     git clone https://aur.archlinux.org/ckbcomp.git
     git clone https://aur.archlinux.org/qt5-styleplugins.git
-    git clone https://aur.archlinux.org/qgnomeplatform-git.git 
-
+    git clone https://aur.archlinux.org/qgnomeplatform-git.git
+    git clone https://aur.archlinux.org/liboobs.git
+    git clone https://aur.archlinux.org/system-tools-backends.git
+    
     #Get calamares package
-    mkdir calamares
-    cd calamares
-    wget https://raw.githubusercontent.com/SwagArch/calamares-configs/master/pkg/PKGBUILD
-    cd ..
+    get_package "calamares" \
+    "https://raw.githubusercontent.com/SwagArch/calamares-configs/master/pkg/PKGBUILD" \
+    ""
 
     #Get swagarch-wallpapers package
-    mkdir swagarch-wallpapers
-    cd swagarch-wallpapers
-    wget https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/PKGBUILD
-    wget https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/swagarch-wallpapers.install
-    cd ..
+    get_package "swagarch-wallpapers" \
+    "https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/PKGBUILD" \
+    "https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/swagarch-wallpapers.install"
 
     #Get swagarch-base-skel package
-    mkdir swagarch-base-skel
-    cd swagarch-base-skel
-    wget https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/PKGBUILD
-    wget https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/swagarch-base-skel.install
-    cd ..
+    get_package "swagarch-base-skel" \
+    "https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/PKGBUILD" \
+    "https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/swagarch-base-skel.install"
 
     #Get light-locker-settings
-    mkdir light-locker-settings
-    cd light-locker-settings
-    wget https://raw.githubusercontent.com/Antergos/antergos-packages/master/antergos/light-locker-settings/PKGBUILD
-    cd ..
+    get_package "light-locker-settings" \
+    "https://raw.githubusercontent.com/Antergos/antergos-packages/master/antergos/light-locker-settings/PKGBUILD" \
+    ""
+
+    #Get swagarch-system-tools
+    get_package "swagarch-system-tools" \
+    "https://raw.githubusercontent.com/SwagArch/swagarch-system-tools/master/pkg/PKGBUILD" \
+    "https://raw.githubusercontent.com/SwagArch/swagarch-system-tools/master/pkg/swagarch-system-tools.install"
     
+}
+
+function get_package() {
+    package=$1
+    pkbuild_url=$2
+    install_url=$3
+    mkdir $package
+    cd $package
+    wget $pkbuild_url
+    if [ -n "$install_url" ]; then
+        wget $install_url
+    fi
+    cd ..
 }
 
 function delete_dotgit_dirs() {
