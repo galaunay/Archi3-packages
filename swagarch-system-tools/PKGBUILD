@@ -15,7 +15,7 @@ source=("git+$url.git")
 sha256sums=('SKIP')
 
 build() {
-    cd "${srcdir}/${pkgname}-${pkgver}"
+    cd "${srcdir}/${pkgname}"
     ./configure --disable-gnome --disable-nautilus --disable-shares -disable-network --prefix=/usr  --sysconfdir=/etc \
         --localstatedir=/var --disable-scrollkeeper --disable-static \
         --disable-services --disable-schemas-compile LIBS="-lm -lgthread-2.0"
@@ -23,6 +23,6 @@ build() {
 }
 
 package() {
-    cd "${srcdir}/${pkgname}-${pkgver}"
+    cd "${srcdir}/${pkgname}"
     make DESTDIR="${pkgdir}" install
 }
