@@ -36,8 +36,6 @@ function cloneall() {
     git clone https://aur.archlinux.org/ckbcomp.git
     git clone https://aur.archlinux.org/qt5-styleplugins.git
     git clone https://aur.archlinux.org/qgnomeplatform-git.git
-    git clone https://aur.archlinux.org/liboobs.git
-    git clone https://aur.archlinux.org/system-tools-backends.git
     
     #Get calamares package
     get_package "calamares" \
@@ -59,10 +57,10 @@ function cloneall() {
     "https://raw.githubusercontent.com/Antergos/antergos-packages/master/antergos/light-locker-settings/PKGBUILD" \
     ""
 
-    #Get swagarch-system-tools
-    get_package "swagarch-system-tools" \
-    "https://raw.githubusercontent.com/SwagArch/swagarch-system-tools/master/pkg/PKGBUILD" \
-    "https://raw.githubusercontent.com/SwagArch/swagarch-system-tools/master/pkg/swagarch-system-tools.install"
+    #Get swagarch-settings-manager
+    get_package "swagarch-settings-manager" \
+    "https://raw.githubusercontent.com/SwagArch/swagarch-settings-manager/master/pkg/PKGBUILD" \
+    ""
     
 }
 
