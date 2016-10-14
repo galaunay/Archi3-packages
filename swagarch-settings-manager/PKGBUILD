@@ -1,7 +1,7 @@
 # Maintainer : Mike Krüger <mikekrueger81@gmail.com>
 
 pkgname=swagarch-settings-manager
-pkgver=0.5
+pkgver=0.5.1
 pkgrel=1
 pkgdesc="SwagArch GNU/Linux System Settings Tool"
 arch=('i686' 'x86_64')
