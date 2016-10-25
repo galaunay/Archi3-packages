@@ -36,6 +36,7 @@ function cloneall() {
     git clone https://aur.archlinux.org/ckbcomp.git
     git clone https://aur.archlinux.org/qt5-styleplugins.git
     git clone https://aur.archlinux.org/qgnomeplatform-git.git
+    git clone https://aur.archlinux.org/fsearch-git.git
     
     #Get calamares package
     get_package "calamares" \
