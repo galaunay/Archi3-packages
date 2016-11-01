@@ -18,7 +18,7 @@ install="${pkgname}.install"
 source=("http://git.xfce.org/thunar-plugins/${_name}/snapshot/${_name}-${_gitcommit}.tar.bz2"
         "smb.conf")
 sha1sums=('fbea3c7bc87c766910e41b78d73bfe2f4f48c731'
-          'c343d104f0fc91390ac07024c2375b5b459f711b')
+          'aad4bc1b7efdb8f28f55138c68e56ed052e240f0')
 
 build() {
   cd "${srcdir}/${_name}-${_gitcommit}"
