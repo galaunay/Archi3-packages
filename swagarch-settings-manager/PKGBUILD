@@ -1,7 +1,7 @@
 # Maintainer : Mike Krüger <mikekrueger81@gmail.com>
 
 pkgname=swagarch-settings-manager
-pkgver=0.5.1
+pkgver=0.5.2
 pkgrel=1
 pkgdesc="SwagArch GNU/Linux System Settings Tool"
 arch=('i686' 'x86_64')
@@ -28,6 +28,12 @@ build() {
 }
 
 package() {
+    #fix issue: Create "/usr/share/pixmaps/faces" directory #28
+    rm -rf "${pkgdir}/usr/share/pixmaps/faces/"
+    mkdir -p "${pkgdir}/usr/share/pixmaps/faces/"
+    cd "${srcdir}/${pkgname}"
+    cp -rf "${srcdir}/swagarch-settings-manager/faces" "${pkgdir}/usr/share/pixmaps/"
+
     cd "${srcdir}/${pkgname}/build"
     make DESTDIR=${pkgdir} install 
 }
