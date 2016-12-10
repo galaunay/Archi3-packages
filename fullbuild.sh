@@ -15,12 +15,10 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-pkgFile=''
 
 function make_pkg() {
     makepkg -f -s -c
-    pkgFile=$(ls *[!x]pkg.tar.xz)
-    gpg --detach-sign $pkgFile
+    gpg --detach-sign --no-armor *.pkg.tar.xz
 }
 
 function copyto_upload_dir() {
@@ -45,11 +43,9 @@ function make_loop() {
 }
 
 function create_repo() {
-    repo-add upload/swagarchrepo.db.tar.gz upload/*.pkg.tar.xz
-    gpg --detach-sign upload/swagarchrepo.db.tar.gz
-    gpg --detach-sign upload/swagarchrepo.files.tar.gz
-}
+    repo-add --sign upload/swagarchrepo.db.tar.gz upload/*.pkg.tar.xz
 
+}
 
 make_loop
 create_repo
