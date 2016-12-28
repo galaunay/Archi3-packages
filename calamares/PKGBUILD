@@ -1,15 +1,15 @@
 # Maintainer: Mike Krüger <mikekrueger81@gmail.com>
 
 pkgname=calamares
-pkgver=2.4.5
-_pkgver=2.4.5
+pkgver=master
+_pkgver=master
 pkgrel=1
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
 license=(GPL)
 url="https://github.com/calamares"
 license=('LGPL')
-depends=('kconfig' 'kcoreaddons' 'ki18n' 'solid' 'yaml-cpp' 'kpmcore>=2.2.0' 'mkinitcpio-openswap' 'dmidecode'
+depends=('kconfig' 'kcoreaddons' 'ki18n' 'solid' 'yaml-cpp' 'kpmcore' 'mkinitcpio-openswap' 'dmidecode'
          'boost-libs' 'hwinfo' 'qt5-svg' 'polkit-qt5' 'gptfdisk' 'gtk-update-icon-cache' 'rsync' 'squashfs-tools')
 makedepends=('extra-cmake-modules' 'qt5-tools' 'git' 'boost')
 backup=('usr/share/calamares/modules/bootloader.conf'
@@ -17,10 +17,10 @@ backup=('usr/share/calamares/modules/bootloader.conf'
         'usr/share/calamares/modules/initcpio.conf'
         'usr/share/calamares/modules/unpackfs.conf')
 
-source+=("$pkgname-$pkgver.tar.gz::https://github.com/calamares/calamares/releases/download/v$_pkgver/calamares-$_pkgver.tar.gz"
+source+=("https://github.com/calamares/calamares/archive/master.zip"
          git+https://github.com/SwagArch/calamares-configs#branch=master)
 
-sha256sums=('fe924bf951ea64c92a565195330aff87587b9326c6769f5c8a8e4ee67e20bab5'
+sha256sums=('SKIP'
             'SKIP')
 
 prepare() {
