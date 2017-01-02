@@ -2,7 +2,7 @@
 
 pkgname=swagarch-settings-manager
 pkgver=0.5.2
-pkgrel=1
+pkgrel=2
 pkgdesc="SwagArch GNU/Linux System Settings Tool"
 arch=('i686' 'x86_64')
 url="https://github.com/SwagArch/swagarch-settings-manager"
