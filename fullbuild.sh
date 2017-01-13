@@ -24,7 +24,7 @@ function make_loop() {
     for dir in */ ;
     do
         dir=${dir%*/}
-        if [ "$dir" == "." ] || [ "$dir" == ".." ]; then
+        if [ "$dir" == "." ] || [ "$dir" == ".." ] || [ "$dir" == "upload" ]; then
             continue;
         fi
 	    cd $dir
@@ -36,12 +36,19 @@ function make_loop() {
 }
 
 function sign_packages(){
-    gpg --detach-sign --no-armor upload/*.pkg.tar.xz
+    cd upload
+    FILES=*.pkg.tar.xz
+    for f in $FILES
+    do
+        echo "Signing $f file..."
+        gpg --detach-sign --no-armor $f
+    done
+
+    cd ..
 }
 
 function create_repo() {
     repo-add --sign upload/swagarchrepo.db.tar.gz upload/*.pkg.tar.xz
-
 }
 
 make_loop
