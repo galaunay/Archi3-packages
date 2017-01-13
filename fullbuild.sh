@@ -15,12 +15,6 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-
-function make_pkg() {
-    makepkg -f -s -c
-    gpg --detach-sign --no-armor *.pkg.tar.xz
-}
-
 function copyto_upload_dir() {
     mv *.pkg.tar.xz ../upload
     mv *.pkg.tar.xz.sig ../upload
@@ -35,11 +29,15 @@ function make_loop() {
             continue;
         fi
 	    cd $dir
-	    make_pkg
+	    makepkg -f -s -c
         copyto_upload_dir
         echo "makepkg from "$dir" finished"
         cd ..
     done
+}
+
+function sign_packages(){
+    gpg --detach-sign --no-armor upload/*.pkg.tar.xz
 }
 
 function create_repo() {
@@ -48,4 +46,5 @@ function create_repo() {
 }
 
 make_loop
+sign_packages
 create_repo
