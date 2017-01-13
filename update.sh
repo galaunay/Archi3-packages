@@ -29,7 +29,6 @@ function cloneall() {
     git clone https://aur.archlinux.org/yaourt.git
     git clone https://aur.archlinux.org/pamac-aur.git
     git clone https://aur.archlinux.org/mac-os-lion-cursors.git 
-    git clone https://aur.archlinux.org/plank-theme-arc.git
     git clone https://aur.archlinux.org/arc-firefox-theme-git.git
     git clone https://aur.archlinux.org/mkinitcpio-openswap.git
     git clone https://aur.archlinux.org/ckbcomp.git
@@ -63,6 +62,10 @@ function cloneall() {
     get_package "swagarch-settings-manager" \
     "https://raw.githubusercontent.com/SwagArch/swagarch-settings-manager/master/pkg/PKGBUILD" \
     ""
+    
+    #plank-theme-arc
+    get_package "plank-theme-arc" \
+    "https://gist.githubusercontent.com/memoryleakx/d34cb59540b856233f2213ca319ab076/raw/e462f37f69834299d6dd72cc727194b5aa056884/PKGBUILD"
     
 }
 
