@@ -17,7 +17,6 @@
 
 function copyto_upload_dir() {
     mv *.pkg.tar.xz ../upload
-    mv *.pkg.tar.xz.sig ../upload
 }
 
 function make_loop() {
