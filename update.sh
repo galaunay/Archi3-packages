@@ -67,7 +67,7 @@ function cloneall() {
 
     #ckbcomp
     get_package "ckbcomp" \
-    "https://gist.githubusercontent.com/memoryleakx/2b85cabb2167d32aaf99d3c9ef494dcb/raw/81355b201b3432b929091e6465a0d9dbec92e457/PKGBUILD"
+    "https://gist.githubusercontent.com/memoryleakx/2b85cabb2167d32aaf99d3c9ef494dcb/raw/58a9735e932b954c689826017940edb21e572ab5/PKGBUILD"
     
 }
 
