@@ -1,6 +1,6 @@
 # Maintainer: spider-mario <spidermario@free.fr>
 pkgname=qgnomeplatform-git
-pkgver=0.0.54
+pkgver=0.0.5
 pkgrel=1
 pkgdesc="Qt Platform Theme aimed to accomodate as much of GNOME settings as possible"
 arch=('i686' 'x86_64')
@@ -10,7 +10,7 @@ depends=('qt5-base')
 makedepends=('git')
 provides=('qgnomeplatform')
 conflicts=('qgnomeplatform')
-source=('git+https://github.com/memoryleakx/QGnomePlatform.git')
+source=('git+https://github.com/MartinBriza/QGnomePlatform.git')
 md5sums=('SKIP')
 
 pkgver() {
