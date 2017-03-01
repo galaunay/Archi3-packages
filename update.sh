@@ -34,6 +34,7 @@ function cloneall() {
     git clone https://aur.archlinux.org/qgnomeplatform-git.git
     git clone https://aur.archlinux.org/fsearch-git.git
     git clone https://aur.archlinux.org/screenfetch-git.git
+    git clone https://aur.archlinux.org/ckbcomp.git 
     git clone https://github.com/SwagArch/thunar-shares-plugin-swagarch
     git clone https://aur.archlinux.org/mugshot.git
     
@@ -65,11 +66,6 @@ function cloneall() {
     #plank-theme-arc
     get_package "plank-theme-arc" \
     "https://gist.githubusercontent.com/memoryleakx/d34cb59540b856233f2213ca319ab076/raw/e462f37f69834299d6dd72cc727194b5aa056884/PKGBUILD"
-
-    #ckbcomp
-    get_package "ckbcomp" \
-    "https://gist.githubusercontent.com/memoryleakx/2b85cabb2167d32aaf99d3c9ef494dcb/raw/58a9735e932b954c689826017940edb21e572ab5/PKGBUILD"
-    
 }
 
 function get_package() {
