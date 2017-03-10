@@ -65,7 +65,7 @@ function cloneall() {
     
     #plank-theme-arc
     get_package "plank-theme-arc" \
-    "https://gist.githubusercontent.com/memoryleakx/d34cb59540b856233f2213ca319ab076/raw/e462f37f69834299d6dd72cc727194b5aa056884/PKGBUILD"
+    "https://gist.githubusercontent.com/memoryleakx/d34cb59540b856233f2213ca319ab076/raw/6e9b12e2069d9af70663611767b4a1380767eaef/PKGBUILD"
 }
 
 function get_package() {
