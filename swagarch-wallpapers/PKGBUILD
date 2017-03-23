@@ -2,7 +2,7 @@
 
 _pkgname='SwagArch Wallpapers'
 pkgname=swagarch-wallpapers
-pkgver=1.0.3
+pkgver=1.0.4
 pkgrel=1
 pkgdesc='Wallpapers for SwagArch GNU/Linux'
 arch=(any)
