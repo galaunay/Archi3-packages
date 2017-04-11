@@ -7,7 +7,7 @@ pkgdesc="SwagArch GNU/Linux mirror list for use by pacman"
 arch=('any')
 url="https://swagarch.github.io/repository.html"
 license=('GPL')
-backup=(etc/pacman.d/mirrorlist)
+backup=(etc/pacman.d/swagarchmirror)
 source=(swagarchmirror)
 
 
