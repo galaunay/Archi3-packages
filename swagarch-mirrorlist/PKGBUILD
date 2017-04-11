@@ -1,0 +1,20 @@
+# Maintainer: Mike Krüger <mikekrueger81[at]gmail.com>
+
+pkgname=swagarch-mirrorlist
+pkgver=20170411
+pkgrel=1
+pkgdesc="SwagArch GNU/Linux mirror list for use by pacman"
+arch=('any')
+url="https://swagarch.github.io/repository.html"
+license=('GPL')
+backup=(etc/pacman.d/mirrorlist)
+source=(swagarchmirror)
+
+
+package() {
+  mkdir -p $pkgdir/etc/pacman.d
+  install -m644 $srcdir/swagarchmirror $pkgdir/etc/pacman.d/
+}
+
+md5sums=('88abe965ff100a50e680940f9d97c968')
+

@@ -1,0 +1,8 @@
+##
+## SwagArch GNU/Linux repository mirrorlist
+## Generated on 2017-04-11
+##
+
+
+Server=http://repo.swagarch.netne.net
+Server=https://github.com/SwagArch/swagarch-packages/releases/download/swagarchrepo/
