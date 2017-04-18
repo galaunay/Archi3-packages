@@ -1,0 +1,40 @@
+# Maintainer: Mike Krüger <mikekrueger81[at]gmail.com>
+
+pkgname=vibrancy-blue
+pkgver=2.7
+pkgrel=1
+pkgdesc="Modern, clean and customizable flat icon theme"
+arch=('any')
+url="http://www.ravefinity.com/p/vibrancy-colors-gtk-icon-theme.html"
+license=('CCPL:by-sa' 'GPL2')
+options=('!strip')
+source=("v$pkgver.tar.gz::https://www.dropbox.com/s/sealvky0fzusfix/Vibrancy-Colors-GTK-Icon-Theme-v-2-7.tar.gz")
+sha1sums=('0a42fb74af7463215f126e9aff9f1ba4fb50d258')
+
+prepare() {
+    rm -rf Vibrancy-Dark-*
+    rm -rf Vibrancy-Light-*
+    rm -rf Vibrancy-NonMono-*
+    rm -rf Vibrancy-Colors-Dark
+    rm -rf Vibrancy-Colors-Light
+    rm -rf Vibrancy-Colors-NonMono-*
+    rm -rf Vibrancy-Full-Dark-Aqua
+    rm -rf Vibrancy-Full-Dark-Blue-Vivid
+    rm -rf Vibrancy-Full-Dark-Brown
+    rm -rf Vibrancy-Full-Dark-Graphite
+    rm -rf Vibrancy-Full-Dark-Green
+    rm -rf Vibrancy-Full-Dark-Green-Viva
+    rm -rf Vibrancy-Full-Dark-Orange
+    rm -rf Vibrancy-Full-Dark-Pink
+    rm -rf Vibrancy-Full-Dark-Purple
+    rm -rf Vibrancy-Full-Dark-Red
+    rm -rf Vibrancy-Full-Dark-Teal
+    rm -rf Vibrancy-Full-Dark-Yellow
+}
+
+
+package() {
+  install -d $pkgdir/usr/share/icons
+  cp -r * $pkgdir/usr/share/icons
+  rm $pkgdir/usr/share/icons/v$pkgver.tar.gz
+}

@@ -23,7 +23,6 @@ function cloneall() {
     git clone https://github.com/SwagArch/swagarch-keyring.git
     git clone https://aur.archlinux.org/gnome-encfs-manager.git
     git clone https://aur.archlinux.org/libgee06.git
-    git clone https://aur.archlinux.org/vibrancy-colors.git
     git clone https://aur.archlinux.org/package-query.git
     git clone https://aur.archlinux.org/yaourt.git
     git clone https://aur.archlinux.org/pamac-aur.git
@@ -62,6 +61,10 @@ function cloneall() {
     #Get swagarch-settings-manager
     get_package "swagarch-settings-manager" \
     "https://raw.githubusercontent.com/SwagArch/swagarch-settings-manager/master/pkg/PKGBUILD" \
+    ""
+
+    get_package "vibrancy-blue" \
+    "https://gist.githubusercontent.com/memoryleakx/02d35648c2d6ac0a6258f71fac16f07d/raw/ba550ff447badb9ea2484dd240d2679e6f0bb8a1/PKGBUILD" \
     ""
 }
 
