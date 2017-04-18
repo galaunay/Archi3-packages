@@ -64,7 +64,7 @@ function cloneall() {
     ""
 
     get_package "vibrancy-blue" \
-    "https://gist.githubusercontent.com/memoryleakx/02d35648c2d6ac0a6258f71fac16f07d/raw/634ce7636514f136724e519ea4041f66651e5745/PKGBUILD" \
+    "https://gist.githubusercontent.com/memoryleakx/02d35648c2d6ac0a6258f71fac16f07d/raw/aa40025e51b90b012abf30402734d0070fa8b640/PKGBUILD" \
     ""
 }
 

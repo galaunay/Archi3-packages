@@ -8,9 +8,13 @@ arch=('any')
 url="http://www.ravefinity.com/p/vibrancy-colors-gtk-icon-theme.html"
 license=('CCPL:by-sa' 'GPL2')
 options=('!strip')
+makedepends=( 'imagemagick' )
 replaces=('vibrancy-colors')
-source=("v$pkgver.tar.gz::https://www.dropbox.com/s/sealvky0fzusfix/Vibrancy-Colors-GTK-Icon-Theme-v-2-7.tar.gz")
-sha1sums=('0a42fb74af7463215f126e9aff9f1ba4fb50d258')
+source=("v$pkgver.tar.gz::https://www.dropbox.com/s/sealvky0fzusfix/Vibrancy-Colors-GTK-Icon-Theme-v-2-7.tar.gz"
+        "https://github.com/snwh/moka-icon-theme/raw/master/Moka/256x256/apps/lollypop.png")
+
+sha1sums=('0a42fb74af7463215f126e9aff9f1ba4fb50d258'
+          '71f4e180458a64e1d723057d481416be3321a46f')
 
 prepare() {
     rm -rf Vibrancy-Dark-*
@@ -31,6 +35,30 @@ prepare() {
     rm -rf Vibrancy-Full-Dark-Red
     rm -rf Vibrancy-Full-Dark-Teal
     rm -rf Vibrancy-Full-Dark-Yellow
+
+    convert "${srcdir}"/lollypop.png -resize 16x16! -quality 100 "lollypop_16.png"
+    mv "${srcdir}"/lollypop_16.png "${srcdir}/Vibrancy-Colors/apps/16/lollypop.png"
+
+    convert "${srcdir}"/lollypop.png -resize 22x22! -quality 100 "lollypop_22.png"
+    mv "${srcdir}"/lollypop_22.png "${srcdir}/Vibrancy-Colors/apps/22/lollypop.png"
+
+    convert "${srcdir}"/lollypop.png -resize 24x24! -quality 100 "lollypop_24.png"
+    mv "${srcdir}"/lollypop_24.png "${srcdir}/Vibrancy-Colors/apps/24/lollypop.png"
+
+    convert "${srcdir}"/lollypop.png -resize 32x32! -quality 100 "lollypop_32.png"
+    mv "${srcdir}"/lollypop_32.png "${srcdir}/Vibrancy-Colors/apps/32/lollypop.png"
+
+    convert "${srcdir}"/lollypop.png -resize 48x48! -quality 100 "lollypop_48.png"
+    mv "${srcdir}"/lollypop_48.png "${srcdir}/Vibrancy-Colors/apps/48/lollypop.png"
+    
+    convert "${srcdir}"/lollypop.png -resize 64x64! -quality 100 "lollypop_64.png"
+    mv "${srcdir}"/lollypop_64.png "${srcdir}/Vibrancy-Colors/apps/64/lollypop.png"
+
+    convert "${srcdir}"/lollypop.png -resize 96x96! -quality 100 "lollypop_96.png"
+    mv "${srcdir}"/lollypop_96.png "${srcdir}/Vibrancy-Colors/apps/96/lollypop.png"
+
+    cp "${srcdir}"/lollypop.png "${srcdir}/Vibrancy-Colors/apps/256/lollypop.png"
+    rm -rf "${srcdir}"/lollypop.png
 }
 
 
