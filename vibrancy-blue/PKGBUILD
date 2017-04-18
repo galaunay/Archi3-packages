@@ -2,7 +2,7 @@
 
 pkgname=vibrancy-blue
 pkgver=2.7
-pkgrel=2
+pkgrel=3
 pkgdesc="Modern, clean and customizable flat icon theme"
 arch=('any')
 url="http://www.ravefinity.com/p/vibrancy-colors-gtk-icon-theme.html"
@@ -23,7 +23,6 @@ prepare() {
     rm -rf Vibrancy-Colors-NonMono-*
     rm -rf Vibrancy-Colors-Light
     rm -rf Vibrancy-Full-Dark-Aqua
-    rm -rf Vibrancy-Full-Dark-Blue-Vivid
     rm -rf Vibrancy-Full-Dark-Brown
     rm -rf Vibrancy-Full-Dark-Graphite
     rm -rf Vibrancy-Full-Dark-Green
