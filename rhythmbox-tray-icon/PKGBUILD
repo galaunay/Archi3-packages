@@ -2,8 +2,8 @@
 
 pkgname=rhythmbox-plugin-tray-icon
 _pkgname=rhythmbox-tray-icon
-pkgver=1.0
-pkgrel=2
+pkgver=97.bdb9341
+pkgrel=1
 pkgdesc="Tray icon for Rhythmbox 2.9+ with rating feature"
 arch=("any")
 url="https://github.com/SwagArch/rhythmbox-tray-icon"
