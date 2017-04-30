@@ -38,6 +38,7 @@ function cloneall() {
     git clone https://aur.archlinux.org/redshift-git.git
     git clone https://github.com/SwagArch/swagarch-mirrorlist.git
     git clone https://aur.archlinux.org/xfpanel-switch.git
+    git clone https://aur.archlinux.org/vibrancy-full-dark-blue.git
     
     #Get calamares package
     get_package "calamares" \
@@ -62,10 +63,6 @@ function cloneall() {
     #Get swagarch-settings-manager
     get_package "swagarch-settings-manager" \
     "https://raw.githubusercontent.com/SwagArch/swagarch-settings-manager/master/pkg/PKGBUILD" \
-    ""
-
-    get_package "vibrancy-blue" \
-    "https://gist.githubusercontent.com/memoryleakx/02d35648c2d6ac0a6258f71fac16f07d/raw/ad959d24d7e471294a42b7d991ed3942392d90db/PKGBUILD" \
     ""
 
     get_package "rhythmbox-tray-icon" \
