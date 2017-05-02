@@ -4,5 +4,6 @@
 ##
 
 
-Server=http://repo.swagarch.netne.net
+#Server=http://repo.swagarch.netne.net
+Server=http://swagarch.netii.net/repo/
 Server=https://github.com/SwagArch/swagarch-packages/releases/download/swagarchrepo/
