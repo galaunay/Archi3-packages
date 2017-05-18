@@ -39,6 +39,7 @@ function cloneall() {
     git clone https://github.com/SwagArch/swagarch-mirrorlist.git
     git clone https://aur.archlinux.org/xfpanel-switch.git
     git clone https://aur.archlinux.org/vibrancy-full-dark-blue.git
+    git clone https://aur.archlinux.org/xed.git
     
     #Get calamares package
     get_package "calamares" \
