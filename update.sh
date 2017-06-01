@@ -40,6 +40,7 @@ function cloneall() {
     git clone https://aur.archlinux.org/xfpanel-switch.git
     git clone https://aur.archlinux.org/vibrancy-full-dark-blue.git
     git clone https://aur.archlinux.org/xed.git
+    git clone https://aur.archlinux.org/xreader.git
     
     #Get calamares package
     get_package "calamares" \
