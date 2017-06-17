@@ -15,46 +15,49 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
+cur_dir=`pwd`
+release_dir=$cur_dir/release
+packages_dir=$cur_dir/packages
+
 function copyto_upload_dir() {
-    mv *.pkg.tar.xz ../release
+    mv *.pkg.tar.xz ../../release
 }
 
 function make_loop() {
     mkdir release
-    for dir in */ ;
+    for dir in $packages_dir/* ;
     do
         dir=${dir%*/}
-        if [ "$dir" == "." ] || [ "$dir" == ".." ] || [ "$dir" == "release" ]; then
+        if [ "$dir" == "." ] || [ "$dir" == ".." ] ; then
             continue;
         fi
-	    cd $dir
-	    makepkg -f -s -c --nosign
+	cd $dir
+	makepkg -f -s -c --nosign
         copyto_upload_dir
         echo "makepkg from "$dir" finished"
-        cd ..
+        cd $cur_dir
     done
 }
 
 function sign_packages(){
-    cd release
-    FILES=*.pkg.tar.xz
-    for f in $FILES
+    cd $release_dir
+    for f in *.pkg.tar.xz
     do
         echo "Signing $f file..."
         gpg --detach-sign --no-armor $f
     done
-
-    cd ..
+    cd $cur_dir
 }
 
 function create_repo() {
-    repo-add release/archi3repo.db.tar.gz release/*.pkg.tar.xz
-    rm release/archi3repo.db
-    rm release/archi3repo.files
-    cp release/archi3repo.db.tar.gz release/archi3repo.db
-    cp release/archi3repo.files.tar.gz release/archi3repo.files
+    cd $release_dir
+    repo-add archi3repo.db.tar.gz *.pkg.tar.xz
+    rm archi3repo.db
+    rm archi3repo.files
+    cp archi3repo.db.tar.gz archi3repo.db
+    cp archi3repo.files.tar.gz archi3repo.files
 }
 
 make_loop
-sign_packages
+#sign_packages
 create_repo

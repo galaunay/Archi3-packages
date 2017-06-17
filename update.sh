@@ -16,15 +16,27 @@
 #
 
 function cleanup() {
-    rm -Rrf -- */
+    rm -Rrf packages
+    mkdir -p packages
 }
 
 function cloneall() {
+    cd packages
     git clone https://aur.archlinux.org/mkinitcpio-openswap.git
     git clone https://aur.archlinux.org/qt5-styleplugins.git
+    git clone https://aur.archlinux.org/packer.git
+    git clone https://aur.archlinux.org/python-snakeviz.git
+    git clone https://aur.archlinux.org/freedns-daemon.git
+    git clone https://aur.archlinux.org/i3blocks.git
+    git clone https://aur.archlinux.org/mu.git
+    git clone https://aur.archlinux.org/git-lfs.git
+    git clone https://aur.archlinux.org/i3lock-color.git
+    git clone https://aur.archlinux.org/wordnet.git
+    cd ..
 }
 
 function delete_dotgit_dirs() {
+    cd packages
     for dir in */ ;
     do
         dir=${dir%*/}
@@ -32,10 +44,11 @@ function delete_dotgit_dirs() {
             continue;
         fi
 	    cd $dir
-	    rm -rf .git
+	    rm -rf .git*
         echo "delete .git from folder "$dir
         cd ..
     done
+    cd ..
 }
 
 cleanup
