@@ -21,6 +21,7 @@ packages_aur_dir=$cur_dir/packages_aur
 packages_local_dir=$cur_dir/packages_local
 
 function make_loop() {
+    rm -rf $release_dir/*
     mkdir -p $release_dir
     for dir in $packages_local_dir/* $packages_aur_dir/* ;
     do
