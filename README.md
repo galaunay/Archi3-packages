@@ -1,2 +1,2 @@
-# swagarch-packages
-The extra packages for SwagArch Linux from the AUR
+# archi3-packages
+The extra packages for archi3 Linux from the AUR

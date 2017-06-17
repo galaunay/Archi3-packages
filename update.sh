@@ -1,6 +1,6 @@
 #!/bin/bash
-# This file is part of the SwagArch GNU/Linux distribution
-# Copyright (c) 2016 Mike Krüger
+# This file is part of the Archi3 GNU/Linux distribution
+# Copyright (c) 2016 Mike Krüger, 2017 Launay Gaby
 # 
 # This program is free software: you can redistribute it and/or modify  
 # it under the terms of the GNU General Public License as published by  
