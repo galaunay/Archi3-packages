@@ -22,24 +22,6 @@ function cleanup() {
 function cloneall() {
     git clone https://aur.archlinux.org/mkinitcpio-openswap.git
     git clone https://aur.archlinux.org/qt5-styleplugins.git
-    
-    #Get calamares package
-    get_package "calamares" \
-    "https://raw.githubusercontent.com/SwagArch/calamares-configs/master/pkg/PKGBUILD" \
-    ""
-}
-
-function get_package() {
-    package=$1
-    pkbuild_url=$2
-    install_url=$3
-    mkdir $package
-    cd $package
-    wget $pkbuild_url
-    if [ -n "$install_url" ]; then
-        wget $install_url
-    fi
-    cd ..
 }
 
 function delete_dotgit_dirs() {
