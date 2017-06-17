@@ -32,7 +32,8 @@ function cloneall() {
     git clone https://aur.archlinux.org/git-lfs.git
     git clone https://aur.archlinux.org/i3lock-color.git
     git clone https://aur.archlinux.org/wordnet.git
-    git clone https://aur.archlinux.org/maia-icon-theme.git
+    git clone https://aur.archlinux.org/artwork-maia.git
+    git clone https://aur.archlinux.org/xcursor-maia.git
     cd ..
 }
 

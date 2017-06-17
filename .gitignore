@@ -1,1 +1,4 @@
 release/*.old
+packages_aur
+packages_local/calamares/master.zip
+packages_local/calamares/calamares-configs
