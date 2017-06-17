@@ -20,55 +20,12 @@ function cleanup() {
 }
 
 function cloneall() {
-    git clone https://github.com/SwagArch/swagarch-keyring.git
-    git clone https://aur.archlinux.org/gnome-encfs-manager-bin.git
-    git clone https://aur.archlinux.org/libgee06.git
-    git clone https://aur.archlinux.org/package-query.git
-    git clone https://aur.archlinux.org/yaourt.git
-    git clone https://aur.archlinux.org/pamac-aur.git
-    git clone https://aur.archlinux.org/mac-os-lion-cursors.git 
-    git clone https://aur.archlinux.org/arc-firefox-theme-git.git
     git clone https://aur.archlinux.org/mkinitcpio-openswap.git
     git clone https://aur.archlinux.org/qt5-styleplugins.git
-    git clone https://aur.archlinux.org/qgnomeplatform-git.git
-    git clone https://aur.archlinux.org/fsearch-git.git
-    git clone https://aur.archlinux.org/ckbcomp.git 
-    git clone https://github.com/SwagArch/thunar-shares-plugin-swagarch
-    git clone https://aur.archlinux.org/mugshot.git
-    git clone https://aur.archlinux.org/redshift-git.git
-    git clone https://github.com/SwagArch/swagarch-mirrorlist.git
-    git clone https://aur.archlinux.org/xfpanel-switch.git
-    git clone https://aur.archlinux.org/vibrancy-full-dark-blue.git
-    git clone https://aur.archlinux.org/xed.git
-    git clone https://aur.archlinux.org/xreader.git
     
     #Get calamares package
     get_package "calamares" \
     "https://raw.githubusercontent.com/SwagArch/calamares-configs/master/pkg/PKGBUILD" \
-    ""
-
-    #Get swagarch-wallpapers package
-    get_package "swagarch-wallpapers" \
-    "https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/PKGBUILD" \
-    "https://raw.githubusercontent.com/SwagArch/swagarch-wallpapers/master/swagarch-wallpapers.install"
-
-    #Get swagarch-base-skel package
-    get_package "swagarch-base-skel" \
-    "https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/PKGBUILD" \
-    "https://raw.githubusercontent.com/SwagArch/desktop-settings/master/pkg/swagarch-base-skel.install"
-
-    #Get light-locker-settings
-    get_package "light-locker-settings" \
-    "https://raw.githubusercontent.com/Antergos/antergos-packages/master/antergos/light-locker-settings/PKGBUILD" \
-    ""
-
-    #Get swagarch-settings-manager
-    get_package "swagarch-settings-manager" \
-    "https://raw.githubusercontent.com/SwagArch/swagarch-settings-manager/master/pkg/PKGBUILD" \
-    ""
-
-    get_package "rhythmbox-tray-icon" \
-    "https://raw.githubusercontent.com/SwagArch/rhythmbox-tray-icon/master/pkg/PKGBUILD" \
     ""
 }
 

@@ -28,7 +28,7 @@ function make_loop() {
             continue;
         fi
 	    cd $dir
-	    makepkg -f -s -c
+	    makepkg -f -s -c --nosign
         copyto_upload_dir
         echo "makepkg from "$dir" finished"
         cd ..
@@ -48,7 +48,7 @@ function sign_packages(){
 }
 
 function create_repo() {
-    repo-add --sign release/archi3repo.db.tar.gz release/*.pkg.tar.xz
+    repo-add release/archi3repo.db.tar.gz release/*.pkg.tar.xz
 }
 
 make_loop
