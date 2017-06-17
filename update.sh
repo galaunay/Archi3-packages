@@ -16,12 +16,12 @@
 #
 
 function cleanup() {
-    rm -Rrf packages
-    mkdir -p packages
+    rm -Rrf packages_aur
+    mkdir -p packages_aur
 }
 
 function cloneall() {
-    cd packages
+    cd packages_aur
     git clone https://aur.archlinux.org/mkinitcpio-openswap.git
     git clone https://aur.archlinux.org/qt5-styleplugins.git
     git clone https://aur.archlinux.org/packer.git
@@ -32,11 +32,12 @@ function cloneall() {
     git clone https://aur.archlinux.org/git-lfs.git
     git clone https://aur.archlinux.org/i3lock-color.git
     git clone https://aur.archlinux.org/wordnet.git
+    git clone https://aur.archlinux.org/maia-icon-theme.git
     cd ..
 }
 
 function delete_dotgit_dirs() {
-    cd packages
+    cd packages_aur
     for dir in */ ;
     do
         dir=${dir%*/}

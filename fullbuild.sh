@@ -17,15 +17,12 @@
 
 cur_dir=`pwd`
 release_dir=$cur_dir/release
-packages_dir=$cur_dir/packages
-
-function copyto_upload_dir() {
-    mv *.pkg.tar.xz ../../release
-}
+packages_aur_dir=$cur_dir/packages_aur
+packages_local_dir=$cur_dir/packages_local
 
 function make_loop() {
-    mkdir release
-    for dir in $packages_dir/* ;
+    mkdir -p $release_dir
+    for dir in $packages_local_dir/* $packages_aur_dir/* ;
     do
         dir=${dir%*/}
         if [ "$dir" == "." ] || [ "$dir" == ".." ] ; then
@@ -33,7 +30,7 @@ function make_loop() {
         fi
 	cd $dir
 	makepkg -f -s -c --nosign
-        copyto_upload_dir
+        mv *.pkg.tar.xz $release_dir
         echo "makepkg from "$dir" finished"
         cd $cur_dir
     done

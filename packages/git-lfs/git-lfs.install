@@ -1,3 +1,0 @@
-post_install() {
-  echo "=> Don't forget to run 'git lfs install' for your user"
-}
