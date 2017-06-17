@@ -49,6 +49,8 @@ function sign_packages(){
 
 function create_repo() {
     repo-add release/archi3repo.db.tar.gz release/*.pkg.tar.xz
+    cp release/archi3repo.db.tar.gz release/archi3repo.db
+    cp release/archi3repo.files.tar.gz release/archi3repo.files
 }
 
 make_loop
