@@ -16,15 +16,15 @@
 #
 
 function copyto_upload_dir() {
-    mv *.pkg.tar.xz ../upload
+    mv *.pkg.tar.xz ../release
 }
 
 function make_loop() {
-    mkdir upload
+    mkdir release
     for dir in */ ;
     do
         dir=${dir%*/}
-        if [ "$dir" == "." ] || [ "$dir" == ".." ] || [ "$dir" == "upload" ]; then
+        if [ "$dir" == "." ] || [ "$dir" == ".." ] || [ "$dir" == "release" ]; then
             continue;
         fi
 	    cd $dir
@@ -36,7 +36,7 @@ function make_loop() {
 }
 
 function sign_packages(){
-    cd upload
+    cd release
     FILES=*.pkg.tar.xz
     for f in $FILES
     do
@@ -48,7 +48,7 @@ function sign_packages(){
 }
 
 function create_repo() {
-    repo-add --sign upload/swagarchrepo.db.tar.gz upload/*.pkg.tar.xz
+    repo-add --sign release/archi3repo.db.tar.gz release/*.pkg.tar.xz
 }
 
 make_loop
