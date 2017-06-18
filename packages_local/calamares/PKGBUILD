@@ -16,11 +16,16 @@ backup=('usr/share/calamares/modules/bootloader.conf'
         'usr/share/calamares/modules/initcpio.conf'
         'usr/share/calamares/modules/unpackfs.conf')
 
-source+=("https://github.com/calamares/calamares/archive/master.zip")
 
-sha256sums=('SKIP')
+source+=("https://github.com/calamares/calamares/archive/master.zip"
+         git+https://github.com/muahah/calamares-configs#branch=master)
+
+sha256sums=('SKIP'
+            'SKIP')
 
 prepare() {
+    cp -a ${srcdir}/calamares-configs/* ${srcdir}/calamares-${pkgver}
+    rm -rf ${srcdir}/calamares-configs
     cd ${srcdir}/calamares-${pkgver}
 }
 
@@ -41,10 +46,10 @@ build() {
 package() {
     cd ${srcdir}/calamares-${pkgver}/build
     make DESTDIR="$pkgdir" install
-    install -Dm644 "$srcdir/../data/calamares.desktop" "$pkgdir/usr/share/applications/calamares.desktop"
-    install -Dm644 "$srcdir/../data/calamares.png" "$pkgdir/usr/share/icons/calamares.png"
-    install -Dm755 "$srcdir/../data/calamares_polkit" "$pkgdir/usr/bin/calamares_polkit"
-    install -Dm644 "$srcdir/../data/49-nopasswd-calamares.rules" "$pkgdir/etc/polkit-1/rules.d/49-nopasswd-calamares.rules"
+    install -Dm644 "../calamares.desktop" "$pkgdir/usr/share/applications/calamares.desktop"
+    install -Dm644 "../calamares.png" "$pkgdir/usr/share/icons/calamares.png"
+	install -Dm755 "../data/calamares_polkit" "$pkgdir/usr/bin/calamares_polkit"
+    install -Dm644 "../data/49-nopasswd-calamares.rules" "$pkgdir/etc/polkit-1/rules.d/49-nopasswd-calamares.rules"
     chmod 750 "$pkgdir"/etc/polkit-1/rules.d
     rm -r "$pkgdir/usr/lib/calamares/modules/dummyprocess/"
     rm -r "$pkgdir/usr/lib/calamares/modules/dummypython/"
