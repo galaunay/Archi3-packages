@@ -34,6 +34,11 @@ function cloneall() {
     git clone https://aur.archlinux.org/wordnet.git
     git clone https://aur.archlinux.org/artwork-maia.git
     git clone https://aur.archlinux.org/xcursor-maia.git
+    git clone https://aur.archlinux.org/copyq.git
+    git clone https://aur.archlinux.org/teiler-git.git
+    git clone https://aur.archlinux.org/ttf-cm-unicode.git
+    git clone https://aur.archlinux.org/mu-git.git
+    git clone https://aur.archlinux.org/xininfo-git.git
     cd ..
 }
 

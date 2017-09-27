@@ -1,4 +1,4 @@
-rm archi3reporepo.db
+rm archi3repo.db
 rm archi3repo.files
 rm archi3repo.db.tar.gz
 rm archi3repo.files.tar.gz
