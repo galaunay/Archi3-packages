@@ -1,0 +1,6 @@
+#!/bin/sh
+post_install() {
+    systemctl daemon-reload
+    systemctl enable hosts-updater.service
+    systemctl start hosts-updater.service
+}

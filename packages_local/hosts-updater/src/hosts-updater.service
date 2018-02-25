@@ -1,0 +1,9 @@
+[Unit]
+Description=Update hosts file
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/hosts-updater
+
+[Install]
+WantedBy=default.target

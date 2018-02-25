@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Update the host file with the curated list from
+# https://github.com/StevenBlack/hosts
+
+#
+curl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts > /etc/hosts

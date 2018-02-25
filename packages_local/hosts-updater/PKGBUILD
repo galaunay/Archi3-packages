@@ -1,0 +1,31 @@
+# Maintainer: Gaby launay <gaby.launay@tutanota.com>
+
+pkgname=hosts-updater
+pkgver=0
+pkgrel=1
+pkgdesc='Hosts file updater for ad/malaware/social blocking'
+arch=('i686' 'x86_64')
+license=(GPL)
+# url="https://github.com/calamares"
+license=('LGPL')
+depends=('curl')
+
+# source+=("https://github.com/calamares/calamares/archive/master.zip"
+#          git+https://github.com/galaunay/calamares-configs#branch=master)
+
+# sha256sums=('SKIP'
+#             'SKIP')
+
+# prepare() {
+# }
+
+
+# build() {
+# }
+
+package() {
+    install -Dm744 "${srcdir}/hosts-updater" "$pkgdir/usr/bin/hosts-updater"
+    install -Dm644 "${srcdir}/hosts-updater.service" "$pkgdir/etc/systemd/system/hosts-updater.service"
+}
+
+install=hosts-updater.install
