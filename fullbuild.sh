@@ -30,7 +30,7 @@ function make_loop() {
             continue;
         fi
 	cd $dir
-	makepkg -f -s -c --nosign
+	makepkg -f -s --nosign
         mv *.pkg.tar.xz $release_dir
         echo "makepkg from "$dir" finished"
         cd $cur_dir
