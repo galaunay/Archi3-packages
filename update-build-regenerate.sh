@@ -52,10 +52,10 @@ function copy_local_snapshots() {
 function build_packages() {
     rm -rf "$release_dir"
     mkdir -p "$release_dir"
-    for dir in "$packages_snap_dir/*" ;
+    for dir in $packages_snap_dir/* ;
     do
 	echo ""
-        echo "+++ Building $dir"
+        echo "+++ Building $dir +++"
         dir=${dir%*/}
         if [ "$dir" == "." ] || [ "$dir" == ".." ] ; then
             continue;
