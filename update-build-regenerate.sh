@@ -15,30 +15,60 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-cur_dir=`pwd`
+cur_dir=$(pwd)
 release_dir=$cur_dir/release
-packages_aur_dir=$cur_dir/packages_aur
-packages_local_dir=$cur_dir/packages_local
+packages_git_file=$cur_dir/packages/git-packages
+packages_snap_dir=$cur_dir/tmp
+packages_local_dir=$cur_dir/packages/packages_local
 
-function make_loop() {
-    rm -f $release_dir/*.tar.xz
-    mkdir -p $release_dir
-    for dir in $packages_local_dir/* $packages_aur_dir/* ;
+function update_git_snapshots() {
+    rm -Rrf "$packages_snap_dir"
+    mkdir -p "$packages_snap_dir"
+    cd "$packages_snap_dir"
+    while read url; do
+        echo ""
+        echo "+++ Cloning $url +++"
+        git clone "$url";
+    done < "$packages_git_file"
+    for dir in */ ;
     do
+        dir=${dir%*/}
+        if [ "$dir" == "." ] || [ "$dir" == ".." ]; then
+            continue;
+        fi
+            cd "$dir"
+        cd ..
+    done
+    cd ..
+    }
+
+function copy_local_snapshots() {
+    mkdir -p "$packages_snap_dir"
+    echo ""
+    echo "+++ Copying local packages +++"
+    cp -r $packages_local_dir/* $packages_snap_dir
+    }
+    
+function build_packages() {
+    rm -rf "$release_dir"
+    mkdir -p "$release_dir"
+    for dir in "$packages_snap_dir/*" ;
+    do
+	echo ""
+        echo "+++ Building $dir"
         dir=${dir%*/}
         if [ "$dir" == "." ] || [ "$dir" == ".." ] ; then
             continue;
         fi
-	cd $dir
+	cd "$dir"
 	makepkg -f -s --nosign
-        mv *.pkg.tar.xz $release_dir
-        echo "makepkg from "$dir" finished"
-        cd $cur_dir
+        mv *.pkg.tar.xz "$release_dir"
+        cd "$cur_dir"
     done
 }
 
 function sign_packages(){
-    cd $release_dir
+    cd "$release_dir"
     for f in *.pkg.tar.xz
     do
         echo "Signing $f file..."
@@ -48,7 +78,8 @@ function sign_packages(){
 }
 
 function create_repo() {
-    cd $release_dir
+    echo "\n+++ Updating database"
+    cd "$release_dir"
     repo-add archi3repo.db.tar.gz *.pkg.tar.xz
     rm archi3repo.db
     rm archi3repo.files
@@ -56,6 +87,13 @@ function create_repo() {
     cp archi3repo.files.tar.gz archi3repo.files
 }
 
-make_loop
+function clean() {
+    rm -rf "$packages_snap_dir"
+}
+
+update_git_snapshots
+copy_local_snapshots
+build_packages
 #sign_packages
 create_repo
+clean
