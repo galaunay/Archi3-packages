@@ -3,7 +3,7 @@
 
 pkgname=teiler-git
 _pkgname=teiler
-pkgver=502.4143ed6
+pkgver=315.9834654
 pkgrel=1
 conflicts=('teiler')
 provides=('teiler')

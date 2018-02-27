@@ -39,6 +39,11 @@ function cloneall() {
     git clone https://aur.archlinux.org/ttf-cm-unicode.git
     git clone https://aur.archlinux.org/mu-git.git
     git clone https://aur.archlinux.org/xininfo-git.git
+    git clone https://aur.archlinux.org/nextcloud-client.git
+    git clone https://aur.archlinux.org/i3blocks-gaps-git.git
+    git clone https://aur.archlinux.org/i3blocks-gaps-git.git
+    git clone https://aur.archlinux.org/whippet.git
+    git clone https://aur.archlinux.org/htop-vim-solarized.git
     cd ..
 }
 
