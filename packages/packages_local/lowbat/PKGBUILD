@@ -1,0 +1,18 @@
+# Maintainer: Gaby launay <gaby.launay@tutanota.com>
+
+pkgname=lowbat
+pkgver=0
+pkgrel=1
+pkgdesc='Handle events at low battery state (notification and hibernate)'
+arch=('i686' 'x86_64')
+license=(GPL)
+license=('LGPL')
+depends=('curl')
+
+package() {
+    install -Dm644 "${srcdir}/99-lowbat-notify.rules" "$pkgdir/etc/udev/rules.d/99-lowbat-notify.rules"
+    install -Dm644 "${srcdir}/99-lowbat.rules" "$pkgdir/etc/udev/rules.d/99-lowbat.rules"
+    install -Dm744 "${srcdir}/lowbat-notify.sh" "$pkgdir/usr/bin/lowbat-notify.sh"
+}
+
+install=lowbat.install

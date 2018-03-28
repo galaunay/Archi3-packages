@@ -1,0 +1,8 @@
+[Unit]
+Description=i3lock
+
+[Service]
+User=glaunay
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/i3lock -e -f --textcolor=1a1a1aff --insidecolor=0000001c --ringcolor=0000003e --linecolor=00000000 --keyhlcolor=ffffff80 --ringvercolor=ffffff00 --insidevercolor=ffffff1c --ringwrongcolor=ffffff55 --insidewrongcolor=ffffff1c -t -i /home/glaunay/.i3/wallpaper/current_wallpaper 

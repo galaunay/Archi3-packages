@@ -1,0 +1,14 @@
+# Maintainer: Gaby launay <gaby.launay@tutanota.com>
+
+pkgname=i3lock-service
+pkgver=0
+pkgrel=1
+pkgdesc='Simple systemctl service for i3lock'
+arch=('i686' 'x86_64')
+license=(GPL)
+license=('LGPL')
+depends=('curl')
+
+package() {
+    install -Dm644 "${srcdir}/i3lock.service" "$pkgdir/etc/systemd/system/i3lock.service"
+}

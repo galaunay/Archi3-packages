@@ -1,0 +1,2 @@
+# Notify the user when when battery level drops below 10%
+SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-9]", RUN+="/usr/bin/lowbat-notify.sh"
