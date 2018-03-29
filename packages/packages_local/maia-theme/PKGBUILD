@@ -1,0 +1,34 @@
+# Maintainer: Gaby launay <gaby.launay@tutanota.com>
+
+pkgname=maia-theme
+pkgver=1
+pkgrel=0
+pkgdesc='Maia gtk themes'
+arch=('i686' 'x86_64')
+license=(GPL)
+license=('LGPL')
+depends=('curl')
+
+source+=(git+https://github.com/galaunay/maia-theme#branch=master)
+
+sha256sums=('SKIP')
+package() {
+    # icons
+    install -d "$pkgdir/usr/share/icons"
+    for icon in "${srcdir}"/maia-theme/icon/*; do
+        cp -r "$icon" "$pkgdir/usr/share/icons"
+        chmod 755 "$pkgdir/usr/share/icons/$(basename $icon)"
+    done
+    # themes
+    install -d "$pkgdir/usr/share/themes"
+    for theme in "${srcdir}"/maia-theme/themes/*; do
+        cp -r "$theme" "$pkgdir/usr/share/themes"
+        chmod 755 "$pkgdir/usr/share/themes/$(basename $theme)"
+    done
+    # cursor
+    install -d "$pkgdir/usr/share/icons"
+    for cursor in "${srcdir}"/maia-theme/cursor/*; do
+        cp -r "$cursor" "$pkgdir/usr/share/icons"
+        chmod 755 "$pkgdir/usr/share/icons/$(basename $cursor)"
+    done
+}
