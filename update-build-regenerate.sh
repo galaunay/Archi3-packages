@@ -80,6 +80,8 @@ function sign_packages(){
 function create_repo() {
     echo "\n+++ Updating database"
     cd "$release_dir"
+    rm archi3repo.db.tar.gz
+    rm archi3repo.files.tar.gz
     repo-add archi3repo.db.tar.gz *.pkg.tar.xz
     rm archi3repo.db
     rm archi3repo.files
