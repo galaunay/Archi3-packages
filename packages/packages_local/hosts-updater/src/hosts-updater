@@ -4,8 +4,12 @@
 # https://github.com/StevenBlack/hosts
 
 while true; do
-    hosts=$(curl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)	
+    hosts=$(curl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)
     [[ $? == 0 ]] && echo "$hosts" > /etc/hosts && break
     echo "Updating hosts file from online failed... sleeping for 1mn"
     sleep 60
 done
+
+# remove reddit and add 9gag
+sed -i '/^.*reddit.*$/ d' /etc/hosts
+echo "0.0.0.0 9gag.com" >> /etc/hosts
