@@ -4,3 +4,5 @@ packages_local/calamares/calamares-configs
 packages_local/calamares/src
 packages_local/calamares/pkg
 packages_local/calamares/master.zip
+tmp
+/log.log
