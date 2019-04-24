@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # This file is part of the Archi3 GNU/Linux distribution
 # Copyright (c) 2016 Mike Krüger, 2017 Launay Gaby
 #
@@ -15,59 +15,74 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
+autoload colors; colors
+
 cur_dir=$(pwd)
 release_dir=$cur_dir/release
 packages_git_file=$cur_dir/packages/git-packages
 packages_snap_dir=$cur_dir/tmp
 packages_local_dir=$cur_dir/packages/packages_local
+log_file=$cur_dir/log.log
+rm $log_file
 
-function update_git_snapshots() {
+update_git_snapshots () {
     rm -Rrf "$packages_snap_dir"
     mkdir -p "$packages_snap_dir"
     cd "$packages_snap_dir"
     while read url; do
         echo ""
         echo "+++ Cloning $url +++"
+        echo "+++ Cloning $url +++" >> $log_file
         git clone "$url";
-    done < "$packages_git_file"
-    for dir in */ ;
-    do
-        dir=${dir%*/}
-        if [ "$dir" == "." ] || [ "$dir" == ".." ]; then
-            continue;
+        if [ $? -ne 0 ]; then
+            echo "$fg[red] ERROR: Something went wrong when cloning $url"
+            echo "$fg[red] ERROR: Something went wrong when cloning $url" >> $log_file
         fi
-            cd "$dir"
-        cd ..
-    done
+    done < "$packages_git_file"
+    # for dir in */ ;
+    # do
+    #     dir=${dir%*/}
+    #     if [ "$dir" == "." ] || [ "$dir" == ".." ]; then
+    #         continue;
+    #     fi
+    #         cd "$dir"
+    #     cd ..
+    # done
     cd ..
     }
 
-function copy_local_snapshots() {
+copy_local_snapshots () {
     mkdir -p "$packages_snap_dir"
     echo ""
     echo "+++ Copying local packages +++"
+    echo "+++ Copying local packages +++" >> $log_file
     cp -r $packages_local_dir/* $packages_snap_dir
     }
 
-function build_packages() {
+build_packages () {
     rm -rf "$release_dir"
     mkdir -p "$release_dir"
     for dir in $packages_snap_dir/* ;
     do
 	echo ""
         echo "+++ Building $dir +++"
+        echo "+++ Building $dir +++" >> $log_file
         dir=${dir%*/}
-        if [ "$dir" == "." ] || [ "$dir" == ".." ] ; then
+        if [[ "$dir" == "." ]] || [[ "$dir" == ".." ]] ; then
             continue;
         fi
 	cd "$dir"
 	makepkg -f -s --nosign
+        if [ $? -ne 0 ]; then
+            echo "$fg[red] ERROR: Something went wrong when cloning $url"
+            echo "$fg[red] ERROR: Something went wrong when cloning $url" >> $log_file
+        fi
         mv *.pkg.tar.xz "$release_dir"
         cd "$cur_dir"
     done
 }
 
-function sign_packages(){
+sign_packages () {
     cd "$release_dir"
     for f in *.pkg.tar.xz
     do
@@ -77,8 +92,9 @@ function sign_packages(){
     cd $cur_dir
 }
 
-function create_repo() {
+create_repo () {
     echo "\n+++ Updating database"
+    echo "\n+++ Updating database" >> $log_file
     cd "$release_dir"
     rm archi3repo.db.tar.gz
     rm archi3repo.files.tar.gz
@@ -89,7 +105,7 @@ function create_repo() {
     cp archi3repo.files.tar.gz archi3repo.files
 }
 
-function clean() {
+clean () {
     rm -rf "$packages_snap_dir"
 }
 
