@@ -109,9 +109,9 @@ clean () {
     rm -rf "$packages_snap_dir"
 }
 
-update_git_snapshots
-copy_local_snapshots
+#update_git_snapshots
+#copy_local_snapshots
 build_packages
 #sign_packages
-create_repo
-clean
+#create_repo
+#clean
