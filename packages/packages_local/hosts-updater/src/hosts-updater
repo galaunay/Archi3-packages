@@ -7,9 +7,9 @@
 while true; do
     hosts=$(curl https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts)
     err1=$?
-    hosts_google=$(curl https://gist.githubusercontent.com/unixb0y/4973fece2d5099bd53143a18a54318f3/raw/3254ebe6ebfcf1c9549d39999ed8f5e98e30e4da/hosts)
-    err2=$?
-    if [[ $err1 == 0 || $err2 == 0 ]] ; then
+    # hosts_google=$(curl https://gist.githubusercontent.com/unixb0y/4973fece2d5099bd53143a18a54318f3/raw/3254ebe6ebfcf1c9549d39999ed8f5e98e30e4da/hosts)
+    # err2=$?
+    if [[ $err1 == 0 ]] ; then
         break
     else
         echo "Updating hosts file from online failed... sleeping for 1mn"
@@ -19,9 +19,9 @@ done
 
 # Overwrite hosts file
 echo "$hosts" > /etc/hosts
-echo "$hosts_google" >> /etc/hosts
+# echo "$hosts_google" >> /etc/hosts
 
-# remove reddit and youtube
-sed -i '/^.*reddit.*$/ d' /etc/hosts
-sed -i '/^.* www.youtube.com .*$/ d' /etc/hosts
-sed -i '/^.* youtube.com .*$/ d' /etc/hosts
+# # remove reddit and youtube
+# sed -i '/^.*reddit.*$/ d' /etc/hosts
+# sed -i '/^.* www.youtube.com .*$/ d' /etc/hosts
+# sed -i '/^.* youtube.com .*$/ d' /etc/hosts
